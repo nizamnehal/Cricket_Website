@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Public/favicon.png">
+    <title>Cricket Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Smooth scroll behavior for all elements */
+        * {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar cross-browser */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        /* Hover underline style */
+        .active:hover {
+            text-decoration: underline;
+            text-decoration-color: #FF007F;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 10px;
+        }
+
+        /* Carousel animation - Desktop */
+        @keyframes carouselAnimDesktop {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(calc(-100% + (6 * 300px)));
+            }
+        }
+
+        /* Carousel animation - Mobile (inside media query) */
+        @keyframes carouselAnimMobile {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(calc(-100% + (5 * 300px)));
+            }
+        }
+
+        /* Default carousel style */
+        .container .carousel-items {
+            animation: carouselAnimDesktop 60s infinite alternate linear;
+        }
+
+        /* Mobile override */
+        @media only screen and (max-width: 768px) {
+            .container .carousel-items {
+                animation: carouselAnimMobile 60s infinite alternate linear;
+            }
+        }
+
+        /* Carousel hover effect */
+        .carousel-focus:hover {
+            transition: all 0.8s;
+            transform: scale(1.1);
+            transform-origin: center;
+        }
+
+        /* Scrolling slider animation */
+        @keyframes scrolling {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .slider {
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 20px;
+            animation: scrolling 20s linear infinite;
+            will-change: transform;
+        }
+    </style>
+
+
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <!-- Full background image -->
+    <div class="relative h-screen bg-cover bg-center">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="https://res.cloudinary.com/dfhujot4d/video/upload/v1745475428/C7075_5_z2f5lw.mp4"
+                type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <!-- Navbar -->
+        <div class="absolute top-0 left-0 right-0 z-50 flex justify-center">
+            <div class="w-full max-w-7xl mx-auto mt-4 px-6 py-4 backdrop-blur bg-white/10 rounded-xl">
+                <nav class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <a href="/" class="flex items-center gap-2">
+                        <img src="Public/Strike-The-Ball-HQ.png" alt="Logo" class="h-20">
+                    </a>
+                    <div class="hidden lg:block">
+                        <ul class="flex gap-3 text-xl ">
+                            <li><a href="#pricing" class="active">Pricing</a></li>
+                            <p>|</p>
+                            <li><a href="#centers" class="active">Centers</a></li>
+                            <p>|</p>
+                            <li><a href="#book" class="active">Book Slot</a></li>
+                            <p>|</p>
+                            <li><a href="#packages" class="active">Packages</a></li>
+                            <p>|</p>
+                            <li><a href="#team" class="active">Our Team</a></li>
+                            <p>|</p>
+                            <li><a href="#franchise" class="active">Franchise</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="grid sm:flex gap-4">
+                        <a href="tel:91-7492978991">
+                            <button
+                                class="bg-gray-800 border border-pink-600 text-pink-600 hover:bg-pink-50 px-4 py-1 sm:px-8 sm:py-3 rounded-lg font-bold flex items-center gap-2">
+                                <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Phone"
+                                    class="h-6 w-6">
+                                +91-7492978991
+                            </button>
+                        </a>
+                        <!-- <a href="https://wa.me/+917492978991">
+                    <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-1 sm:px-8 sm:py-3 rounded-lg font-bold flex items-center gap-2">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" class="h-6 w-6">
+                        +91-7492978991
+                    </button>
+                </a> -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- Hero Text -->
+        <div class="relative max-w-7xl z-10 flex flex-col justify-center h-full px-6 md:px-16 text-white mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Innovating Cricket Training for Every Player,
+                Everywhere.</h1>
+            <!-- <h2 class="text-8xl md:text-7xl font-extrabold leading-tight mb-6">CRICKET TRAINING</h2> -->
+            <p class="text-4xl mt-2 mb-8">Empowering your cricket passion and fitness journey.</p>
+            <div class="flex gap-4 flex-wrap">
+                <a href="#book">
+
+                    <button
+                        class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-lg font-bold transform - ">
+                        BOOK NOW!
+                    </button>
+                </a>
+                <!-- <button
+                    class="bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-bold transform - ">
+                    DISCOVER MEMBERSHIPS
+                </button> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-[#2D2D2D] text-black font-sans">
+
+        <section class="bg-[url('/mnt/data/a86f0c33-4330-40d8-9c48-9df00c4d704d.png')] bg-cover bg-center py-16 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Left Text Section -->
+                <div class="text-white">
+                    <h2 class="text-4xl text-white font-bold">ABOUT US</h2>
+                    <h2 class="text-2xl ">India’s Largest and Fastest Growing Indoor Cricket Academy</h2>
+
+                    <p class="mt-4 text-lg text-white/80">
+                        At Strike The Ball, we are passionate about cricket and dedicated to helping players of all
+                        levels sharpen their skills
+                        in a professional, safe, and comfortable indoor environment. Whether you're just starting out or
+                        pushing toward elite
+                        performance, our state-of-the-art indoor nets provide the perfect setting to train
+                        year-round—rain or shine.</p>
+                    <p class="mt-4 text-lg text-white/80">
+                        Founded by cricket lovers for cricket lovers, we believe in creating an inclusive and supportive
+                        space where every
+                        player can grow. Our facility features high-quality practice nets, professional-grade flooring,
+                        and top-tier equipment,
+                        making it ideal for individual practice, team sessions, or coaching clinics.
+                    </p>
+                    <a href="#packages">
+
+                        <button class="mt-6 px-6 py-3 bg-pink-500 text-white font-bold rounded-full hover:bg-pink-600">
+                            SEE MEMBERSHIPS
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Right Steps Section -->
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
+
+                    <div class="bg-gradient-to-br from-pink-600 to-purple-800 text-white rounded-xl p-8">
+                        <div class="stat-box text-4xl font-bold text-cyan-300" data-count="1000000">1000000+</div>
+                        <p class="text-xl mt-4">Overs Practiced</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-pink-600 to-purple-800 text-white rounded-xl p-8">
+                        <div class="stat-box text-4xl font-bold text-cyan-300" data-count="10000">10000+</div>
+                        <p class="text-xl mt-4">Training Sessions</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-pink-600 to-purple-800 text-white rounded-xl p-8">
+                        <div class="stat-box text-4xl font-bold text-cyan-300" data-count="1000">1000+</div>
+                        <p class="text-xl mt-4">Registered Players</p>
+                    </div>
+
+                    <div class=" bg-gradient-to-br from-pink-600 to-purple-800 text-white rounded-xl p-8">
+                        <div class="stat-box text-4xl font-bold text-cyan-300" data-count="10">10+</div>
+                        <p class="text-xl mt-4">Coaches in Gurgaon</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    
+    <div class="bg-black text-white font-sans">
+    
+        <section class="relative bg-[url('/your-pattern-bg.png')] bg-cover bg-center py-16">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <h2 class="text-4xl font-light mb-8">
+                    <span class="text-white/70">LATEST</span><br>
+                    <span class="font-extrabold text-white">NEWS</span>
+                </h2>
+                  
+                <div class="relative">
+                   
+                    <button onclick="scrollNews(-1)"
+                        class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full border border-white/20">
+                        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+    
+                    <button onclick="scrollNews(1)"
+                        class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full border border-white/20">
+                        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                       
+                    <div id="newsScroll" class="flex overflow-x-auto space-x-6 scroll-smooth scroll-snap px-10">
+                       
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('Public/hajj.jpg')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    HARRY BROOK NAMED FIRST HITZ ATHLETE | NEW BETHNAL GREEN FACILITY LAUNCHES
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                           
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('/mnt/data/d5e3df58-8a8a-408c-bbe9-1996a1837363.png')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    CRICKET | PERSONALISED, DATA-DRIVEN CRICKET TRAINING
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('/mnt/data/d5e3df58-8a8a-408c-bbe9-1996a1837363.png')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    CRICKET | PERSONALISED, DATA-DRIVEN CRICKET TRAINING
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('/mnt/data/d5e3df58-8a8a-408c-bbe9-1996a1837363.png')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    CRICKET | PERSONALISED, DATA-DRIVEN CRICKET TRAINING
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('/mnt/data/d5e3df58-8a8a-408c-bbe9-1996a1837363.png')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    CRICKET | PERSONALISED, DATA-DRIVEN CRICKET TRAINING
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('/mnt/data/d5e3df58-8a8a-408c-bbe9-1996a1837363.png')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    CRICKET | PERSONALISED, DATA-DRIVEN CRICKET TRAINING
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                        <div class="snap-item min-w-[300px] max-w-sm bg-cover bg-center rounded-2xl p-6 flex flex-col justify-between"
+                            style="background-image: url('/mnt/data/d5e3df58-8a8a-408c-bbe9-1996a1837363.png')">
+                            <div>
+                                <h3 class="font-extrabold text-white text-lg leading-tight">
+                                    CRICKET | PERSONALISED, DATA-DRIVEN CRICKET TRAINING
+                                </h3>
+                                <p class="flex items-center mt-3 text-sm text-white/80">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    10 Apr 2025
+                                </p>
+                            </div>
+                            <a href="#"
+                                class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2 rounded-xl text-sm self-start">READ
+                                MORE</a>
+                        </div>
+                           
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="text-white/80 py-16">
+        <div class="max-w-7xl mx-auto px-6 py-2 flex flex-col md:flex-row justify-between items-center gap-8">
+
+            <!-- Left: Heading + Description -->
+            <div class="md:w-2/3">
+                <h1 class="text-4xl md:text-5xl font-light">
+                    STRIKE THE BALL CRICKET <br>
+                    <span class="font-extrabold text-white/80">Our Mission</span>
+                </h1>
+                <p class="mt-6 text-lg w-full font-bold">
+                    Our mission is to nurture talent, promote fitness, and bring the cricketing community together. Come
+                    train with us and
+                    take your game to the next level.
+                </p>
+                <p class="mt-2 text-2xl font-bold">Train Smart. Play Hard. Love Cricket.</p>
+            </div>
+
+            <!-- Right: Logos + Button -->
+            <div class="flex flex-col md:items-end items-center gap-4 md:gap-6">
+                <!-- Logos -->
+                <div class="flex items-center space-x-6">
+                    <img src="Public/Strike-The-Ball-HQ.png" alt="HITZ" class="h-40">
+                    <!-- <div class="h-10 w-px bg-black opacity-50"></div> -->
+                    <!-- <img src="Public/batfast.png" alt="BATFAST" class="h-10"> -->
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#"
+                    class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-6 py-3 rounded-xl shadow-md transition duration-300 - ">
+                    FIND OUT MORE
+                </a>
+            </div>
+        </div>
+        <!-- Additional Image -->
+        <div class="flex justify-center mt-8" data-aos="slide-up">
+            <img src="Public/gallery/cover.jpg" alt="Placeholder Image"
+                class="rounded-3xl px-4 shadow-lg w-full max-w-7xl h-[600px] object-cover mb-2" data-aos="slide-down">
+        </div>
+
+    </section>
+
+
+    <!-- <div class="flex justify-center mt-20" data-aos="slide-up">
+        <img src="Public/banner.jpeg" alt="Placeholder Image"
+            class="rounded-lg shadow-lg m-8 w-full h-[300px] border-4 border-red-500" data-aos="slide-down">
+    </div> -->
+
+
+    <div class="bg-[#2D2D2D] font-sans text-white">
+
+        <section
+            class="px-4 py-10 bg-[url('/mnt/data/8a7ba935-0264-4472-b1c4-b5a39e04b4f8.png')] bg-cover bg-center space-y-4">
+
+            <!-- Bottom row (two columns) -->
+            <div class=" max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 -  mt-2">
+
+                <!-- Left image -->
+                <div class="relative group rounded-xl overflow-hidden min-h-[700px] bg-white/20 p-6 text-white">
+                    <h2 class="text-3xl font-bold mb-4 mt-2">Message from the Founder</h2>
+                    <h3 class="text-xl font-semibold mb-2">Welcome to Strike The Ball – where passion meets precision,
+                        and every cricketer finds their edge.</h3>
+                    <p class="text-lg">
+                        When I started Strike The Ball, the vision was simple: to create a space where players could
+                        train like professionals,
+                        no matter the weather or season. What began as a dream has now grown into a thriving community
+                        with five centers across
+                        Gurgaon, each designed to provide the best indoor cricket training experience possible.</p>
+                    <p class="text-lg mt-4">Cricket is more than just a sport – it’s discipline, teamwork, and
+                        relentless pursuit of improvement. At Strike The
+                        Ball, we’ve built an arena where that spirit lives and breathes every day. Whether you're an
+                        aspiring youngster, a
+                        seasoned club player, or just someone who loves the game, our doors are open for you.</p>
+                    <p class="text-lg mt-4">This journey wouldn’t have been possible without the love and support of our
+                        incredible cricketing family. Thank you
+                        for
+                        trusting us to be a part of your training journey. Together, let’s continue to raise the bar and
+                        strike the ball
+                        with
+                        purpose.</p>
+                    <p class="mt-4">See you in the Nets!</p>
+                    <p class="mt-2 text-2xl font-bold">Suraj Dhama, Founder</p>
+                </div>
+
+
+                <!-- Right image -->
+                <div class="relative group grid place-content-center rounded-xl overflow-hidden">
+                    <img src="Public/iii.jpg" class="w-full create object-cover" alt="Investing in Hitz">
+                    <div
+                        class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                        <div>
+                            <h2 class="text-4xl font-medium mb-8">What Sets Us Apart</h2>
+                            <h1 class="text-lg">Strike The Ball transcends the traditional training center — it fosters
+                                a vibrant community of passionate individuals
+                                dedicated to achieving greatness in their pursuits. We are committed to cultivating an
+                                empowering environment where
+                                every member can thrive, innovate, and realize their fullest potential. Join us in this
+                                new era of transformative
+                                training and embark on a journey to unlock your true capabilities.</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+
+
+
+
+    <!-- Individual Sessions -->
+    <section id="pricing" class="flex z-50 justify-center relative">
+        <div
+            class="w-full max-w-7xl mx-auto mt-16 px-1 sm:px-4 md:px-6 py-8 backdrop-blur-xl bg-slate-900/80 rounded-3xl text-center border border-white/10 shadow-2xl shadow-purple-900/20 hover:shadow-purple-900/30 transition-shadow duration-300">
+            <h2 class="text-white font-extrabold text-4xl mb-12 drop-shadow-md">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+                    Individual Sessions
+                </span>
+            </h2>
+
+            <div class="overflow-x-auto rounded-2xl border border-white/20 backdrop-blur-sm bg-white/10 mb-6">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-purple-700 to-pink-700 text-white">
+                            <th class="px-6 py-4 text-left font-bold">S No.</th>
+                            <th class="px-6 py-4 text-center font-bold">Packages</th>
+                            <th class="px-6 py-4 text-center font-bold">Validity</th>
+                            <th class="px-6 py-4 text-center font-bold">Normal (machine)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">1</td>
+                            <td class="px-6 py-4 text-center text-white">50 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">1 Month</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹2000</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">2</td>
+                            <td class="px-6 py-4 text-center text-white">100 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">3 Months</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹3500</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">3</td>
+                            <td class="px-6 py-4 text-center text-white">200 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">6 Months</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹6000</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">4</td>
+                            <td class="px-6 py-4 text-center text-white">500 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">12 Months</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹14000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Training Packages -->
+    <section class="flex z-50 justify-center relative mt-16">
+        <div
+            class="w-full max-w-7xl mx-auto px-1 sm:px-4 md:px-6 py-8 backdrop-blur-xl bg-slate-900/80 rounded-3xl text-center border border-white/10 shadow-2xl shadow-purple-900/20 hover:shadow-purple-900/30 transition-shadow duration-300">
+            <h2 class="text-white font-extrabold text-4xl mb-12 drop-shadow-md">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+                    Team Training Package
+                </span>
+            </h2>
+
+            <div class="overflow-x-auto rounded-2xl border border-white/20 backdrop-blur-sm bg-white/10 mb-6">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-purple-700 to-pink-700 text-white">
+                            <th class="px-6 py-4 text-left font-bold">S No.</th>
+                            <th class="px-6 py-4 text-center font-bold">Packages</th>
+                            <th class="px-6 py-4 text-center font-bold">Validity</th>
+                            <th class="px-6 py-4 text-center font-bold">Normal (machine)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">1</td>
+                            <td class="px-6 py-4 text-center text-white">50 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">1 Month</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹2000</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">2</td>
+                            <td class="px-6 py-4 text-center text-white">100 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">3 Months</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹3500</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">3</td>
+                            <td class="px-6 py-4 text-center text-white">200 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">6 Months</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹6000</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">4</td>
+                            <td class="px-6 py-4 text-center text-white">500 Overs</td>
+                            <td class="px-6 py-4 text-center text-white">12 Months</td>
+                            <td class="px-6 py-4 text-center text-cyan-300 font-medium">₹14000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Button -->
+    <div class="mt-16 items-center justify-center flex mb-10 relative z-10">
+        <a href="https://wa.me/+917492978991">
+            <button
+                class="bg-gradient-to-br from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-bold text-2xl px-8 py-4 rounded-2xl shadow-2xl shadow-purple-900/30 hover:shadow-cyan-900/40 transition-all duration-300 transform hover:scale-105 group">
+                <span class="mr-2">🎯</span>
+                <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 to-purple-200 group-hover:from-white group-hover:to-cyan-100 transition-colors">
+                    Book Session & Offers
+                </span>
+                <span class="ml-2">📞</span>
+            </button>
+        </a>
+
+    </div>
+
+    <!-- <div class="flex justify-center mt-20" data-aos="slide-up">
+        <img src="Public/banner.jpeg" alt="Placeholder Image"
+            class="rounded-lg shadow-lg m-8 w-full h-[300px] border-4 border-red-500" data-aos="slide-down">
+    </div> -->
+
+
+    <div class="bg-black  font-sans text-white" id="centers">
+
+        <section
+            class="px-4 py-10 bg-[url('/mnt/data/8a7ba935-0264-4472-b1c4-b5a39e04b4f8.png')] bg-cover bg-center space-y-4">
+
+            <div class=" max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4  mt-8">
+
+                <!-- Left image -->
+                <div class="">
+                    <a href="https://maps.app.goo.gl/qCyWxTgidRbN2BEC9" target="_blank">
+                        <div class="relative group rounded-xl ">
+
+                            <img src="Public/arrow.png" alt="" class="w-10 absolute top-2 right-2">
+                            <img src="Public/gallery/110.jpg"
+                                class="w-full h-80 object-cover overflow-hidden rounded-xl" alt="">
+                            <div
+                                class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                                <div>
+                                    <h2 class="text-xl font-extrabold">SECTOR 110</h2>
+                                    <h4 class="text-sm ">1. Bowling machine sessions <br>
+                                        2. Robo arm sessions <br>
+                                        3. Corporate cricket coaching <br>
+                                        4. Personal training sessions <br>
+                                        5. Cricket gears at reasonable price</h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        <p class="font-bold text-xl">SECTOR 110</p>
+                        RAHUL YADAV<br>
+                        <span class="text-sm font-normal">8882118032</span>
+                    </div>
+                </div>
+                <!-- Right image -->
+                <div>
+                    <a href="https://maps.app.goo.gl/4PbgZNAgpKLrio2v6" target="_blank">
+                        <div class="relative group rounded-xl ">
+                            <img src="Public/arrow.png" alt="" class="w-10 absolute top-2 right-2">
+                            <img src="Public/gallery/93.jpg" class="w-full h-80 object-cover overflow-hidden rounded-xl"
+                                alt="">
+                            <div
+                                class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                                <div>
+                                    <h2 class="text-xl font-extrabold">SECTOR 93</h2>
+                                    <h4 class="text-sm ">1. Bowling machine sessions <br>
+                                        2. Robo arm sessions <br>
+                                        3. Corporate cricket coaching <br>
+                                        4. Personal training sessions <br>
+                                        5. Cricket gears at reasonable price</h4>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </a>
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        <p class="font-bold text-xl">SECTOR 93</p>
+                        SURYA<br>
+                        <span class="text-sm font-normal">9026909312</span>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="https://maps.app.goo.gl/S3ge6bZ56n1knmxV7" target="_blank">
+
+                        <div class="relative group rounded-xl ">
+                            <img src="Public/arrow.png" alt="" class="w-10 absolute top-2 right-2">
+                            <img src="Public/gallery/10A.jpg"
+                                class="w-full h-80 object-cover overflow-hidden rounded-xl" alt="">
+                            <div
+                                class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                                <div>
+                                    <h2 class="text-xl font-extrabold">SECTOR 10A</h2>
+                                    <h4 class="text-sm text-xl">1. Bowling machine sessions <br>
+                                        2. Robo arm sessions <br>
+                                        3. Corporate cricket coaching <br>
+                                        4. Personal training sessions</h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        <p class="font-bold ">SECTOR 10A</p>
+                        SHREYANSHI<br>
+                        <span class="text-sm font-normal">8368226042</span>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="https://maps.app.goo.gl/2buUj2Sg1C3Fru4V7 " target="_blank">
+                        <div class="relative group rounded-xl ">
+                            <img src="Public/arrow.png" alt="" class="w-10 absolute top-2 right-2">
+                            <img src="Public/gallery/sector57.jpeg"
+                                class="w-full h-80 object-cover overflow-hidden rounded-xl" alt="">
+                            <div
+                                class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                                <div>
+                                    <h2 class="text-xl font-extrabold">SECTOR 57</h2>
+                                    <h4 class="text-sm ">1. Bowling machine sessions <br>
+                                        2. Robo arm sessions <br>
+                                        3. Corporate cricket coaching <br>
+                                        4. Personal training sessions <br>
+                                        5. Cricket academy for under 16 and above also on actual wicket
+                                    </h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        <p class="font-bold text-xl">SECTOR 57</p>
+                        SONU<br>
+                        <span class="text-sm font-normal">9990409707</span>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="https://maps.app.goo.gl/Mow11y1a1tZY9Ycr9" target="_blank">
+                        <div class="relative group rounded-xl ">
+                            <img src="Public/arrow.png" alt="" class="w-10 absolute top-2 right-2">
+                            <img src="Public/gallery/1072.jpg"
+                                class="w-full h-80 object-cover overflow-hidden rounded-xl" alt="">
+                            <div
+                                class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                                <div>
+                                    <h2 class="text-xl font-extrabold">SECTOR 107</h2>
+                                    <h4 class="text-sm ">1. Box cricket matches <br>
+                                        2. Corporate box tournament <br>
+                                        3. Birthday parties <br>
+                                        4. Corporates outdoor activities and parties <br>
+                                        5. Box cricket tournaments <br>
+                                    </h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        <p class="font-bold text-xl">SECTOR 107(Box)</p>
+                        ASHUTOSH<br>
+                        <span class="text-sm font-normal">7248618111</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://maps.app.goo.gl/Mow11y1a1tZY9Ycr9" target="_blank">
+                        <div class="relative group rounded-xl ">
+                            <img src="Public/arrow.png" alt="" class="w-10 absolute top-2 right-2">
+                            <img src="Public/gallery/sec107.jpeg"
+                                class="w-full h-80 object-cover overflow-hidden rounded-xl" alt="">
+                            <div
+                                class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                                <div>
+                                    <h2 class="text-xl font-extrabold">SECTOR 107</h2>
+                                    <h4 class="text-sm ">1. Real Turf cricket matches <br>
+                                        2. Corporate box tournament <br>
+                                        3. Birthday parties <br>
+                                        4. Corporates outdoor activities and parties <br>
+                                        5. Box cricket tournaments <br>
+                                    </h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        <p class="font-bold text-xl">SECTOR 107 (Real Turf)</p>
+                        AMIT<br>
+                        <span class="text-sm font-normal">9873641834</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    
+    <div class="bg-black font-sans text-white">
+
+        <section
+            class="px-4 py-10 bg-[url('/mnt/data/8a7ba935-0264-4472-b1c4-b5a39e04b4f8.png')] bg-cover bg-center space-y-4">
+    
+            <div class="relative max-w-7xl mx-auto group rounded-xl overflow-hidden - ">
+                <img src="/Public/imgex.jpeg" class="w-full h-80 object-cover" alt="Become a Member">
+                <div
+                    class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-start p-6 transition duration-300">
+                    <div>
+                        <h2 class="text-xl font-medium">BECOME A</h2>
+                        <h1 class="text-4xl font-extrabold">MEMBER</h1>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <div class="bg-black font-sans text-white">
+    
+        <section
+            class="px-4 py-10 bg-[url('/mnt/data/8a7ba935-0264-4472-b1c4-b5a39e04b4f8.png')] bg-cover bg-center space-y-4">
+            
+            <div class=" max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 -  mt-8">
+    
+             
+                <div class="relative group rounded-xl overflow-hidden">
+                    <img src="Public/step3.jpeg" class="w-full h-80  object-cover" alt="Your Club">
+                    <div
+                        class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                        <div>
+                            <h2 class="text-xl font-medium">WANT HITZ FOR</h2>
+                            <h1 class="text-4xl font-extrabold">YOUR CLUB?</h1>
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="relative group rounded-xl overflow-hidden">
+                    <img src="Public/step2.jpeg" class="w-full h-80  object-cover" alt="Investing in Hitz">
+                    <div
+                        class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-end p-6 transition duration-300">
+                        <div>
+                            <h2 class="text-xl font-medium">INVESTING IN</h2>
+                            <h1 class="text-4xl font-extrabold">HITZ</h1>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+        </section>
+    </div>
+
+    <section class="py-12 bg-black" id="packages">
+        <h2 class="text-3xl font-black text-center mb-10 text-white">OUR SUBSCRIPTIONS</h2>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-4">
+
+            <!-- Silver Plan -->
+            <div
+                class="group rounded-2xl p-6 border-2 border-white/25 text-white text-center backdrop-filter backdrop-blur-sm bg-[#c0c0c0]/75">
+                <h3 class="text-xl font-bold text-center">PT (Personal Training)<br>Silver</h3>
+                <hr class="my-4 border-white/30">
+                <p class="text-center font-bold">Sessions/Month - 8</p>
+                <p class="text-center font-bold mb-4">Maximum Overs per month - 225</p>
+                <p class="text-center font-bold mb-4">Feedback Reports - <span class="font-black">Detailed
+                        Feedback</span></p>
+                <ul class="space-y-2 text-sm">
+                    <li>✔️ Access to Indoor Batting Machines</li>
+                    <li>✔️ Shadow Practice Guidance</li>
+                    <li>✔️ Throwdowns</li>
+                    <li>✔️ One-on-One Coaching</li>
+                    <li>✔️ Customized Training Plan</li>
+                    <li>✔️ Exclusive Time Slots</li>
+                    <li>✔️ Nutritional Guidance</li>
+                    <li>✔️ Personalized Fitness Plan</li>
+                    <li>✔️ Priority Booking for Slots</li>
+                    <li>✔️ Video Analysis of Batting Performance</li>
+                </ul>
+                <a href="https://wa.me/+917492978991">
+
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        Pricing - ₹ 9,000/month<br>
+                        <span class="text-sm font-normal">Call us to book session and offers</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Gold Plan -->
+            <div
+                class="group rounded-2xl p-6 border-2 border-white/25 text-white text-center backdrop-filter backdrop-blur-sm bg-[#ffd700]/75">
+                <h3 class="text-xl font-bold text-center">PT (Personal Training)<br>Gold</h3>
+                <hr class="my-4 border-white/30">
+                <p class="text-center font-bold">Sessions/Month - 15</p>
+                <p class="text-center font-bold mb-4">Maximum Overs per month - 450</p>
+                <p class="text-center font-bold mb-4">Feedback Reports - <span class="font-black">Detailed
+                        Feedback</span></p>
+                <ul class="space-y-2 text-sm">
+                    <li>✔️ Access to Indoor Batting Machines</li>
+                    <li>✔️ Shadow Practice Guidance</li>
+                    <li>✔️ Throwdowns</li>
+                    <li>✔️ One-on-One Coaching</li>
+                    <li>✔️ Customized Training Plan</li>
+                    <li>✔️ Exclusive Time Slots</li>
+                    <li>✔️ Nutritional Guidance</li>
+                    <li>✔️ Personalized Fitness Plan</li>
+                    <li>✔️ Priority Booking for Slots</li>
+                    <li>✔️ Video Analysis of Batting Performance</li>
+                </ul>
+                <a href="https://wa.me/+917492978991">
+
+                    <div class="mt-6 text-center bg-white text-purple-700 font-bold p-4 rounded-lg">
+                        Pricing - ₹ 18,000/month<br>
+                        <span class="text-sm font-normal">Call us to book session and offers</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Franchise Section -->
+    <section class="bg-gradient-to-b from-purple-900 to-pink-900 py-16 px-6 relative overflow-hidden" id="franchise">
+        <!-- Decorative elements -->
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')] z-0">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Heading -->
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-white" data-aos="fade-up">
+                Become a <span class="text-cyan-300">Franchise Partner</span>
+            </h2>
+            <p class="text-xl text-center text-white/80 mb-12 max-w-3xl mx-auto" data-aos="fade-up"
+                data-aos-delay="100">
+                Join India's leading cricket arcade revolution and earn returns with impact.
+            </p>
+
+            <!-- Franchise Models -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16" data-aos="fade-up" data-aos-delay="200">
+                <!-- FOFO Model -->
+                <div
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 hover:border-cyan-400/50">
+                    <h3 class="text-2xl font-bold text-cyan-300 mb-4">FOFO Model</h3>
+                    <p class="text-white/80">
+                        Franchise Owned, Franchise Operated. Great for independent control with strong brand support.
+                    </p>
+                    <div class="mt-6">
+                        <span
+                            class="inline-block bg-cyan-900/50 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium">
+                            Full Control
+                        </span>
+                    </div>
+                </div>
+
+                <!-- FOCO Model -->
+                <div
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 transition-all duration-300 hover:bg-white/15 hover:border-pink-400/50">
+                    <h3 class="text-2xl font-bold text-pink-400 mb-4">FOCO Model</h3>
+                    <p class="text-white/80">
+                        Franchise Owned, Company Operated. Let us handle operations while you invest & earn.
+                    </p>
+                    <div class="mt-6">
+                        <span
+                            class="inline-block bg-pink-900/50 text-pink-300 px-4 py-2 rounded-full text-sm font-medium">
+                            Hassle-Free
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Franchise Benefits -->
+            <h3 class="text-3xl font-bold text-center mb-8 text-white" data-aos="fade-up">Franchise Benefits</h3>
+            <p class="text-center text-white/80 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We support you every step of the way.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" data-aos="fade-up"
+                data-aos-delay="200">
+                <!-- Benefit 1 -->
+                <div
+                    class="bg-gradient-to-br from-cyan-900/50 to-cyan-900/20 border border-cyan-400/30 rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-cyan-300 mb-3">₹50K+</div>
+                    <h4 class="text-xl font-semibold text-white mb-2">Min. Guarantee</h4>
+                    <p class="text-white/80 text-sm">Monthly income assurance</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div
+                    class="bg-gradient-to-br from-purple-900/50 to-purple-900/20 border border-purple-400/30 rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-purple-300 mb-3">100%</div>
+                    <h4 class="text-xl font-semibold text-white mb-2">Tech Support</h4>
+                    <p class="text-white/80 text-sm">Billing & CRM included</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div
+                    class="bg-gradient-to-br from-pink-900/50 to-pink-900/20 border border-pink-400/30 rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-pink-300 mb-3">360°</div>
+                    <h4 class="text-xl font-semibold text-white mb-2">Marketing</h4>
+                    <p class="text-white/80 text-sm">Social media, flyers, BTL</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div
+                    class="bg-gradient-to-br from-green-900/50 to-green-900/20 border border-green-400/30 rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-green-300 mb-3">1 Week</div>
+                    <h4 class="text-xl font-semibold text-white mb-2">Training</h4>
+                    <p class="text-white/80 text-sm">Complete staff onboarding</p>
+                </div>
+            </div>
+
+            <!-- ROI Table -->
+            <h3 class="text-3xl font-bold text-center mb-8 text-white" data-aos="fade-up">Investment & Returns</h3>
+
+            <div class="overflow-x-auto rounded-2xl border border-white/20 backdrop-blur-sm bg-white/10 mb-16"
+                data-aos="fade-up" data-aos-delay="100">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-purple-700 to-pink-700 text-white">
+                            <th class="px-6 py-4 text-left font-bold">Model</th>
+                            <th class="px-6 py-4 text-center font-bold">Investment</th>
+                            <th class="px-6 py-4 text-center font-bold">Monthly Sales</th>
+                            <th class="px-6 py-4 text-center font-bold">Monthly Profit</th>
+                            <th class="px-6 py-4 text-center font-bold">Annual Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Single Lane</td>
+                            <td class="px-6 py-4 text-center text-white">₹8 L</td>
+                            <td class="px-6 py-4 text-center text-green-300">₹1.5 L</td>
+                            <td class="px-6 py-4 text-center text-cyan-300">₹50,000</td>
+                            <td class="px-6 py-4 text-center text-pink-300">₹6,00,000</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Dual Lane</td>
+                            <td class="px-6 py-4 text-center text-white">₹15 L</td>
+                            <td class="px-6 py-4 text-center text-green-300">₹3.0 L</td>
+                            <td class="px-6 py-4 text-center text-cyan-300">₹98,000</td>
+                            <td class="px-6 py-4 text-center text-pink-300">₹11,76,000</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Box Cricket</td>
+                            <td class="px-6 py-4 text-center text-white">₹25 L</td>
+                            <td class="px-6 py-4 text-center text-green-300">₹4.5 L</td>
+                            <td class="px-6 py-4 text-center text-cyan-300">₹2,11,000</td>
+                            <td class="px-6 py-4 text-center text-pink-300">₹25,32,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-xl text-white/80 mb-6">Ready to open your own cricket arena?</p>
+                <a href="#contact"
+                    class="inline-block bg-gradient-to-r from-cyan-500 to-pink-600 hover:from-cyan-600 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    Request Franchise Info
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="bg-[#2d2d2d] py-16 px-6" id="team">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">OUR TEAM</h2>
+            <img src="Public/tree.png">
+
+        </div>
+    </section>
+
+    <!-- <div class="bg-gradient-to-r from-green-300 to-blue-400 p-10 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('/path-to-pattern.png')] bg-repeat z-0"></div>
+        <div class="relative z-10 flex items-center justify-between max-w-7xl mx-auto">
+            <div>
+                <p class="text-xl text-black font-medium">FOLLOW US ON</p>
+                <h2 class="text-5xl font-extrabold text-black">SOCIAL</h2>
+            </div>
+            <a href="https://www.instagram.com" target="_blank"
+                class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-transform">
+                <img src="/path-to-instagram-icon.png" alt="Instagram" class="w-8 h-8" />
+            </a>
+        </div>
+    </div> -->
+
+    <div class="bg-gradient-to-b from-purple-600 to-pink-600 text-white/80  font-sans text-black">
+
+        <section class="px-6 py-16 bg-[url('/mnt/data/7c7b72fd-f6b5-4cd5-9e9f-15cff4d9fd20.png')] bg-cover bg-center">
+
+            <!-- Header Row: Title + Arrows -->
+            <div class="flex max-w-7xl mx-auto justify-between items-center mb-10">
+                <h2 class="text-4xl font-extrabold">WHAT THEY SAY (REVIEWS)</h2>
+                <div class="flex space-x-4">
+                    <button onclick="scrollTestonomials(-1)"
+                        class="w-10 h-10 border border-black rounded-full text-xl font-bold flex items-center text-black justify-center bg-white hover:bg-gray-100">&#8592;</button>
+                    <button onclick="scrollTestonomials(1)"
+                        class="w-10 h-10 border border-black rounded-full text-xl font-bold flex items-center text-black justify-center bg-white hover:bg-gray-100">&#8594;</button>
+                </div>
+            </div>
+
+            <!-- Scrollable Testimonials Centered -->
+            <div class="max-w-7xl mx-auto">
+                <div id="newtestimonials" class="flex  overflow-x-auto space-x-6 no-scrollbar max-w-6xl px-2">
+                    <!-- Testimonial Card 1 -->
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            A fantastic place with amazing people and a helpful staff. They don’t just pass the ball;
+                            they
+                            teach you how to play it. The perfect spot to unwind after a stressful day at the office.
+                            Hahaha! 😆
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Pradeep Kumar"</p>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25  rounded-lg text-center">
+                        <p class="mb-6">
+                            Great Experience, Large and wide setup with assistance with training, must try atleast once
+                            ,
+                            you will love it , M loving it !!!!!
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Rahul Soni"</p>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25 rounded-xl text-center">
+                        <p class="mb-6">
+                            Good place to sharpen your batting skills!
+                            They also use white leather ball.
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Shishir Tiwari"</p>
+                    </div>
+                    <div class="min-w-[300px] max-w-sm  p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            Very nice set up with equipment’s available to play, buy and practicing one’s batting skills
+                            .
+                            Please add energy drinks, small bisleri water bottles and energy snacks which are healthy !
+                            Adding this will also be a win win situation
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Rishabh Sharma"</p>
+                    </div>
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            One the finest places for cricket enthusiasts to practice and relinquish their sprit for the
+                            game. They have very nice staff and trained coaches. Loved the overall experience. 💯
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Deepak Kr."</p>
+                    </div>
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            Would give more than 5 stars if possible. Positives: 24x7 service, knowledgable staff which
+                            guides if technique is wrong. One of the very few nets with leather ball. All this for such
+                            little price it almost seems impossible.
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Mayank Mishra"</p>
+                    </div>
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            Unforgetable experience. I really enjoyed playing cricket @Strike the Ball, Sector107,
+                            Gurgaon.
+                            The turf was of the best quality, spacious place, and top-notch equipments. Also, food and
+                            beverages at the canteen was the cherry on top. I am visiting the place again anytime
+                            soon!!!!
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Kewal Yadav"</p>
+                    </div>
+                    <div class="min-w-[300px] max-w-sm  p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            Great place for practicing, genuine pople, service and the best thing is it's open 24/7.
+                            Keep it
+                            up👍
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Arjun Verma"</p>
+                    </div>
+                    <div
+                        class="min-w-[300px] max-w-sm bg-black text-white bg-opacity-25 p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            Excellent place for enhancing ur cricketing skills. Owner and staff guys are cooperative and
+                            lovely. Feels Great to practice at STB
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Pradeep K."</p>
+                    </div>
+                    <div class="min-w-[300px] max-w-sm p-6 bg-black text-white bg-opacity-25 rounded-lg text-center">
+                        <p class="mb-6">
+                            Ambience is good, nets are broad and feeder are highly experience overall it was good nets
+                            session to play with.
+                        </p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p class="text-extrabold">"Surjit Halder"</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <section class="bg-black text-white font-sans - ">
+
+        <div class="max-w-7xl mx-auto px-4 py-10">
+            <h1 class="text-5xl font-extrabold mb-10">FREQUENTLY ASKED QUESTIONS</h1>
+
+            <div id="faq-wrapper" class="space-y-4">
+
+                <div
+                    class="faq border border-white rounded-2xl p-6 bg-black cursor-pointer transition-all duration-300">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-bold">How does HITZ compare to other Indoor Training?</h2>
+                        <span class="icon text-2xl font-bold">+</span>
+                    </div>
+                    <div class="answer mt-4 hidden text-white text-lg">
+                        HITZ venues are accessible whenever you need them and unlike a "standard" net session you don't
+                        need
+                        someone to bowl or throw-down at you. As a result you will face significantly more deliveries,
+                        consistently in the areas that you program it meaning both the quantity and quality of your
+                        sessions
+                        are optimised.
+                    </div>
+                </div>
+
+                <div
+                    class="faq border border-white rounded-2xl p-6 bg-black cursor-pointer transition-all duration-300">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-bold">Who is HITZ for?</h2>
+                        <span class="icon text-2xl font-bold">+</span>
+                    </div>
+                    <div class="answer mt-4 hidden text-white text-lg">
+                        HITZ is designed for players of all skill levels who are looking to improve their game with
+                        high-quality, repeatable training.
+                    </div>
+                </div>
+
+                <div
+                    class="faq border border-white rounded-2xl p-6 bg-black cursor-pointer transition-all duration-300">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-bold">Does HITZ provide any equipment or should I bring my own?</h2>
+                        <span class="icon text-2xl font-bold">+</span>
+                    </div>
+                    <div class="answer mt-4 hidden text-white text-lg">
+                        HITZ provides essential equipment, but you're welcome to bring your own gear for personal
+                        comfort
+                        and performance.
+                    </div>
+                </div>
+
+                <div
+                    class="faq border border-white rounded-2xl p-6 bg-black cursor-pointer transition-all duration-300">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-bold">Are the balls hard?</h2>
+                        <span class="icon text-2xl font-bold">+</span>
+                    </div>
+                    <div class="answer mt-4 hidden text-white text-lg">
+                        No, the balls are designed to be safe for indoor use while still offering realistic bounce and
+                        performance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-[#2D2D2D] py-10">
+
+        <section class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-10 text-white">Gallery</h2>
+
+            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Images will be inserted here by JS -->
+            </div>
+
+            <div class="text-center mt-8">
+                <button id="toggleBtn" class="text-white px-6 py-2 rounded-lg border-2 border-white transition">
+                    Show More
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Inquiry Section -->
+    <section class="text-white py-16 px-6" id="book">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Section: Locations -->
+            <div class="space-y-8">
+                <h2 class="text-4xl font-extrabold mb-8">OUR LOCATIONS</h2>
+
+                <!-- Location 1 -->
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <a href="https://maps.app.goo.gl/qCyWxTgidRbN2BEC9" target="_blank">
+                        <h3 class="text-2xl font-bold text-cyan-300">SECTOR 110</h3>
+                        <p class="mt-2">K Block, N 1-55, Rajendra Park Rd, opp. Ahuja Garden, near Sarai Chowk, K Block,
+                            New Palam Vihar Phase 1, Sector 110, Gurugram, Haryana 122017</p>
+                    </a>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <a href="https://maps.app.goo.gl/4PbgZNAgpKLrio2v6" target="_blank">
+                        <h3 class="text-2xl font-bold text-cyan-300">SECTOR 93</h3>
+                        <p class="mt-2">Shop No. 5, First Floor, Sector 93 Rd, opposite Shiv Mandir, Hayatpur, Sector
+                            93, Gurugram, Haryana 122505</p>
+                    </a>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <a href="https://maps.app.goo.gl/Mow11y1a1tZY9Ycr9" target="_blank">
+                        <h3 class="text-2xl font-bold text-cyan-300">SECTOR 10A</h3>
+                        <p class="mt-2">Basement of, Dr Chandna's Dental and Implant Centre, House No - 67 Main Hudda
+                            Market, opposite Om Sweets, Sector 10A, Gurugram, Haryana 122001</p>
+                    </a>
+                </div>
+
+                <!-- Location 4 -->
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold text-cyan-300">SECTOR 107</h3>
+                    <p class="mt-2">Strike The Box, near Six Flag 2.0, Sector 107, Gurugram, Haryana 122017</p>
+                </div>
+            </div>
+
+            <!-- Right Section: Booking Form -->
+            <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                <h2 class="text-4xl font-extrabold mb-6">Book Your Slot Now!</h2>
+
+                <form id="bookingForm" class="space-y-6">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-lg font-medium mb-2">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+
+                    <!-- Number Field -->
+                    <div>
+                        <label for="phone" class="block text-lg font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                            class="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+
+                    <!-- Overs Dropdown -->
+                    <div>
+                        <label for="overs" class="block text-lg font-medium mb-2">How many overs you'll like to
+                            play</label>
+                        <select id="overs" name="overs"
+                            class="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-black focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="" disabled selected>Select overs</option>
+                        </select>
+                    </div>
+
+                    <!-- Store Dropdown -->
+                    <div>
+                        <label for="store" class="block text-lg font-medium mb-2">Select your store</label>
+                        <select id="store" name="store"
+                            class="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-black focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="" disabled selected>Select store</option>
+                        </select>
+                    </div>
+
+                    <!-- Date and Time -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="date" class="block text-lg font-medium mb-2">Date</label>
+                            <input type="date" id="date" name="date"
+                                class="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="time" class="block text-lg font-medium mb-2">Time</label>
+                            <input type="time" id="time" name="time"
+                                class="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition duration-300">
+                        BOOK NOW
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gradient-to-b from-purple-600 to-pink-600 text-white">
+        <div class="container mx-auto px-4 py-12 lg:px-8">
+            <div class="md:grid md:grid-cols-3 items-center space-y-8  md:space-y-0">
+                <!-- Logo -->
+                <div class="mb-8 md:mb-0 flex">
+                    <img src="Public/Strike-The-Ball-HQ.png" alt="Cricket Logo"
+                        class="h-36 w-auto opacity-90 hover:opacity-100 transition-opacity">
+
+                </div>
+
+                <div class="grid place-content-center bg-gray-400 rounded-lg bg-opacity-40 p-4 ">
+                    <h1 class="text-2xl  lg:text-5xl font-bold">Available 24 x 7</h1>
+                </div>
+
+                <!-- Contact Info -->
+
+                <div class="text-center " id="contact">
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <div class="space-y-2 text-sm">
+                        <p class="flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            +91-7492978991
+                        </p>
+                        <p class="flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            nizamuddindbg21@gmail.com
+                        </p>
+
+                    </div>
+
+                    <!-- <h3 class="text-lg font-semibold mb-4">Follow Us</h3> -->
+                    <div class="flex justify-center  space-x-4 mt-3">
+                        <a href="#" class="hover:text-pink-200 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <!-- Add more social icons here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-white/20 mt-8 pt-6"></div>
+
+            <!-- Copyright -->
+
+            <div class="text-center text-sm opacity-80 mt-10">
+                © 2026 For Cricket. All rights reserved.
+            </div>
+
+            <div
+                class="max-w-5xl mx-auto px-4 flex justify-end space-x-4 ml-[322px] -mt-[17px]  max-lg:mt-[0] max-lg:ml-[0] max-lg:justify-center">
+                <a href="cricket-privacy-policy.html" class="text-sm opacity-80">Privacy Policy</a>
+                <a href="cricket-terms-conditions.html" class="text-sm opacity-80">Terms & Conditions</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const oversDropdown = document.getElementById('overs');
+            const storeDropdown = document.getElementById('store');
+            const form = document.getElementById('bookingForm');
+
+            // Load packages (overs)
+            fetch('https://striketheball.in/api/packages')
+                .then(res => res.json())
+                .then(data => {
+                    data.packages.forEach(pkg => {
+                        const option = document.createElement('option');
+                        option.value = pkg.id;
+                        option.textContent = `🏏 ${pkg.name}`;
+                        oversDropdown.appendChild(option);
+                    });
+                });
+
+            // Load stores
+            fetch('https://striketheball.in/api/stores')
+                .then(res => res.json())
+                .then(data => {
+                    data.stores.forEach(store => {
+                        const option = document.createElement('option');
+                        option.value = store.id;
+                        option.textContent = store.name;
+                        storeDropdown.appendChild(option);
+                    });
+                });
+
+            // Handle form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const payload = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    packageId: parseInt(document.getElementById('overs').value),
+                    storeId: parseInt(document.getElementById('store').value),
+                    date: document.getElementById('date').value,
+                    time: document.getElementById('time').value
+                };
+
+                try {
+                    const res = await fetch('https://striketheball.in/api/enquiry', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await res.json();
+                    if (res.ok) {
+                        alert('Booking successful!');
+                        form.reset();
+                    } else {
+                        alert('Booking failed: ' + (result.message || 'Try again'));
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Something went wrong!');
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        const faqs = document.querySelectorAll(".faq");
+
+        faqs.forEach((faq) => {
+            faq.addEventListener("click", () => {
+                // Close all other answers
+                faqs.forEach((item) => {
+                    if (item !== faq) {
+                        item.querySelector(".answer").classList.add("hidden");
+                        item.querySelector(".icon").textContent = "+";
+                    }
+                });
+
+                // Toggle current answer
+                const answer = faq.querySelector(".answer");
+                const icon = faq.querySelector(".icon");
+
+                if (answer.classList.contains("hidden")) {
+                    answer.classList.remove("hidden");
+                    icon.textContent = "−";
+                } else {
+                    answer.classList.add("hidden");
+                    icon.textContent = "+";
+                }
+            });
+        });
+    </script>
+
+    <!-- Scroll Script -->
+    <script>
+        function scrollTestonomials(direction) {
+            const container = document.getElementById('newtestimonials');
+            const scrollAmount = 340; // width + margin
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+    <script>
+        function scrollNews(direction) {
+            const container = document.getElementById('newsScroll');
+            const scrollAmount = 340; // width + margin
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const boxes = document.querySelectorAll(".stat-box");
+            let animated = false; // make sure it only runs once
+
+            const animateCount = (box) => {
+                const rawValue = box.getAttribute("data-count");
+                const endValue = parseInt(rawValue.replace(/\D/g, ""), 10);
+                const suffix = rawValue.replace(/\d+/g, "");
+                const duration = 5000;
+                const startTime = performance.now();
+
+                const animate = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(progress * endValue);
+                    box.textContent = current.toLocaleString() + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+
+                requestAnimationFrame(animate);
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animated) {
+                        animated = true;
+                        boxes.forEach(box => animateCount(box));
+                        obs.disconnect(); // stop observing once triggered
+                    }
+                });
+            }, {
+                threshold: 0.4 // trigger when 40% of the section is visible
+            });
+
+            // Observe the parent container of the stat boxes
+            const container = document.querySelector(".grid");
+            if (container) {
+                observer.observe(container);
+            }
+        });
+    </script>
+
+    <script>
+        const allImages = [
+            "Public/gallery/DSC08711.JPG",
+            "Public/gallery/DSC08712.JPG",
+            "Public/gallery/DSC08716.JPG",
+            "Public/gallery/DSC08717.JPG",
+            "Public/gallery/DSC08720.JPG",
+            "Public/gallery/DSC08724.JPG",
+            "Public/gallery/DSC08726.JPG",
+            "Public/gallery/DSC08728.JPG",
+            "Public/gallery/DSC08731.JPG",
+            "Public/gallery/DSC08732.JPG",
+            "Public/gallery/DSC08733.JPG",
+            "Public/gallery/DSC08736.JPG",
+            "Public/gallery/DSC08752.JPG",
+            "Public/gallery/DSC08764.JPG",
+            "Public/gallery/DSC08775.JPG",
+            "Public/gallery/DSC08776.JPG",
+            "Public/gallery/DSC08779.JPG",
+            "Public/gallery/DSC08782.JPG",
+            "Public/gallery/DSC08790.JPG",
+            "Public/gallery/DSC08792.JPG",
+
+        ];
+
+        const gallery = document.getElementById("gallery");
+        const toggleBtn = document.getElementById("toggleBtn");
+        let visibleCount = 6;
+
+        function renderImages() {
+            gallery.innerHTML = "";
+            for (let i = 0; i < visibleCount && i < allImages.length; i++) {
+                const img = document.createElement("img");
+                img.src = allImages[i];
+                img.alt = `Gallery Image ${i + 1}`;
+                img.className = "w-full h-64 object-cover rounded-lg shadow-md";
+                gallery.appendChild(img);
+            }
+
+            if (visibleCount >= allImages.length) {
+                toggleBtn.textContent = "Close All Images";
+            } else {
+                toggleBtn.textContent = "Show More";
+            }
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            if (visibleCount >= allImages.length) {
+                visibleCount = 6;
+            } else {
+                visibleCount += 6;
+            }
+            renderImages();
+        });
+
+        // Initial render
+        renderImages();
+    </script>
+
+</body>
+
+</html>
