@@ -69,7 +69,7 @@ This project was created to practice modern frontend development using Tailwind 
 1. Clone repository
 
 ```
-git clone https://github.com/nizamnehal21/Cricket_Website_Nehal.git
+git clone https://github.com/nizamnehal/Cricket_Website_Nehal.git
 ```
 
 2. Open project folder
