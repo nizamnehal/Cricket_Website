@@ -13,7 +13,7 @@ This project showcases a clean sports-themed UI with responsive layouts, team in
 
 ## 📁 GitHub Repository
 
-🔗 https://github.com/nizamnehal21/Cricket_Website_Nehal.git
+🔗 https://github.com/nizamnehal/Cricket_Website_Nehal.git
 
 ---
 
@@ -82,7 +82,7 @@ git clone https://github.com/nizamnehal21/Cricket_Website_Nehal.git
 
 **Md Nizamuddin**
 
-GitHub: https://github.com/nizamnehal21
+GitHub: https://github.com/nizamnehal
 
 ---
 
